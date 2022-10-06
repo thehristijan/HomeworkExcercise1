@@ -1,16 +1,35 @@
 package com.homeworkexcercise1;
 
 public class Square extends Shape {
+    private final int a;
 
-    private int a = 10;
-    @Override
-    protected double calculateArea() {
-        System.out.println("Calculating area of square with formula a * 4");
-        return a * 4;
+    public Square(SquareBuilder builder) {
+        this.a = builder.a;
+    }
+
+    public static class SquareBuilder {
+        private int a;
+
+        public SquareBuilder() {
+        }
+
+        public SquareBuilder a(int a) {
+            this.a = a;
+            return this;
+        }
+
+        public Square build() {
+            return new Square(this);
+        }
     }
 
     @Override
-    double calculateCircumference() {
-        return 0;
+    public double calculateArea() {
+        return a * a;
+    }
+
+    @Override
+    public double calculateCircumference() {
+        return a * 4;
     }
 }

@@ -4,7 +4,7 @@ public abstract class Shape {
     public Shape() {
     }
 
-    protected abstract double calculateArea();
-    abstract double calculateCircumference();
+    public abstract double calculateArea();
 
+    public abstract double calculateCircumference();
 }
